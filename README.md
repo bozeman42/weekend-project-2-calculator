@@ -2,8 +2,8 @@
 - [x] client: basic HTML and static files
 - [x] client: data gathering
 - [x] client: post request for calulation
-- [ ] server: route for calculation
-    - [ ] calculate using selected operation
-    - [ ] respond with completed calculation
-- [ ] client: handling of server response
-- [ ] client: append result to DOM
+- [x] server: route for calculation
+    - [x] calculate using selected operation
+    - [x] respond with completed calculation
+- [x] client: handling of server response
+- [x] client: append result to DOM
