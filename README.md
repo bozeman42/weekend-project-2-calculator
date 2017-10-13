@@ -3,7 +3,7 @@
 - [x] client: data gathering
 - [x] client: post request for calulation
 - [ ] server: route for calculation
-- - [ ] calculate using selected operation
-- - [ ] respond with completed calculation
+    - [ ] calculate using selected operation
+    - [ ] respond with completed calculation
 - [ ] client: handling of server response
 - [ ] client: append result to DOM
