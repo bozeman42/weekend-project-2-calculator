@@ -8,7 +8,7 @@ function main(){
 }
 
 // adds data to each button that contains the operation it will represent
-function adOpData(){
+function addOpData(){
   $('#add').data('operation','+');
   $('#sub').data('operation','-');
   $('#mul').data('operation','*');
@@ -22,9 +22,11 @@ function clickHandlers(){
 // get operation data from button and 
 // submit operation and input to server for processing
 function selectOp(){
-  var operation = $(this).val();
+  var operation = $(this).data('operation');
   var input1 = parseInt($('#input1').val());
   var input2 = parseInt($('#input2').val());
+  $out = $('#output');
+  $out.empty();
   $.ajax({
     method: 'POST',
     url: '/calc',
@@ -33,5 +35,9 @@ function selectOp(){
       in2: input2,
       op: operation
     }
+  })
+  .done(function(message){
+    $out.text(message.result);
+    console.log(message);
   })
 }

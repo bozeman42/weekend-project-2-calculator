@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var calc = require('./modules/calc.js');
 var port = 5000;
 var app = express();
 
@@ -8,8 +9,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/calc',function(req,res){
   var expression = req.body;
-  res.send(calculate();
-})
+  console.log('calc POST:',expression);
+  var result = {
+    result: calc(parseInt(expression.in1),parseInt(expression.in2),expression.op)
+  };
+  res.send(result);
+});
 
 app.listen(port,function(){
   console.log('Listening on port',port);
