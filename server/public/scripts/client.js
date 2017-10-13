@@ -3,4 +3,35 @@ $(document).ready(main);
 
 function main(){
   console.log('jQ sourced');
+  addOpData();
+  clickHandlers();
+}
+
+// adds data to each button that contains the operation it will represent
+function adOpData(){
+  $('#add').data('operation','+');
+  $('#sub').data('operation','-');
+  $('#mul').data('operation','*');
+  $('#div').data('operation','/');
+}
+
+function clickHandlers(){
+  $('#op').on('click','button',selectOp);
+}
+
+// get operation data from button and 
+// submit operation and input to server for processing
+function selectOp(){
+  var operation = $(this).val();
+  var input1 = parseInt($('#input1').val());
+  var input2 = parseInt($('#input2').val());
+  $.ajax({
+    method: 'POST',
+    url: '/calc',
+    data: {
+      in1: input1,
+      in2: input2,
+      op: operation
+    }
+  })
 }
