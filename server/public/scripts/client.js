@@ -24,8 +24,8 @@ function clickHandlers(){
 // submit operation and input to server for processing
 function selectOp(){
   var operation = $(this).data('operation');
-  var input1 = parseFloat($('#input1').val());
-  var input2 = parseFloat($('#input2').val());
+  var input1 = $('#input1').val();
+  var input2 = $('#input2').val();
   $out = $('#output');
   $out.empty();
   $.ajax({

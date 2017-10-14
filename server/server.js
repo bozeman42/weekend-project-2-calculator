@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+// calc takes input 1, input 2 , operation('+','-','*','/') and returns
+// a number as a result
 var calc = require('./modules/calc.js');
 var port = 5000;
 var app = express();
@@ -8,10 +10,13 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/calc',function(req,res){
-  var expression = req.body;
-  console.log('calc POST:',expression);
+  // data: {in1:string,in2:string,op:string}
+  var in1 = parseFloat(req.body.in1);
+  var in2 = parseFloat(req.body.in2);
+  var op = req.body.op;
+  console.log('calc POST:',req.body);
   var result = {
-    result: calc(parseFloat(expression.in1),parseFloat(expression.in2),expression.op)
+    result: calc(in1,in2,op)
   };
   res.send(result);
 });
