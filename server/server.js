@@ -11,7 +11,7 @@ app.post('/calc',function(req,res){
   var expression = req.body;
   console.log('calc POST:',expression);
   var result = {
-    result: calc(parseInt(expression.in1),parseInt(expression.in2),expression.op)
+    result: calc(parseFloat(expression.in1),parseFloat(expression.in2),expression.op)
   };
   res.send(result);
 });

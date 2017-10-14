@@ -17,14 +17,15 @@ function addOpData(){
 
 function clickHandlers(){
   $('#op').on('click','button',selectOp);
+  $('#clear').on('click',reset) // ADD CLEARING FUNCTION
 }
 
 // get operation data from button and 
 // submit operation and input to server for processing
 function selectOp(){
   var operation = $(this).data('operation');
-  var input1 = parseInt($('#input1').val());
-  var input2 = parseInt($('#input2').val());
+  var input1 = parseFloat($('#input1').val());
+  var input2 = parseFloat($('#input2').val());
   $out = $('#output');
   $out.empty();
   $.ajax({
@@ -40,4 +41,12 @@ function selectOp(){
     $out.text(message.result);
     console.log(message);
   })
+  .fail(function(message){
+    console.log(message);
+  });
+}
+
+function reset(){
+  $('input').val('');
+  $('#output').text('0');
 }

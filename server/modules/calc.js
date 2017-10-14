@@ -2,16 +2,16 @@ function calc(in1,in2,op){
   var result;
   switch(op){
     case '+':
-      result = add(in1,in2)
+      result = add(in1,in2);
       break;
     case '-':
-      result = subtract(in1,in2)
+      result = subtract(in1,in2);
       break;
     case '*':
-      result = multiply(in1,in2)
+      result = multiply(in1,in2);
       break;
     case '/':
-      result = divide(in1,in2)
+      result = divide(in1,in2);
       break;
   }
   return result;
