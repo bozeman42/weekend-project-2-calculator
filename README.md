@@ -1,3 +1,5 @@
+# Weekend project 2: Calculator
+## Base mode
 - [x] Spin up server
 - [x] client: basic HTML and static files
 - [x] client: data gathering
@@ -7,3 +9,10 @@
     - [x] respond with completed calculation
 - [x] client: handling of server response
 - [x] client: append result to DOM
+- [x] clear/reset button
+## Hard Mode
+- [ ] Change input fields to use buttons
+- [ ] button -> op -> button -> equals
+- [ ] '=' button sends data to server
+## Pro Mode
+- [ ] calculation history stored on server and is displayed on load
