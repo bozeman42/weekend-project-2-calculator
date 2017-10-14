@@ -3,6 +3,7 @@ $(document).ready(main);
 
 function main(){
   console.log('jQ sourced');
+  createNumPad();
   addOpData();
   clickHandlers();
 }
@@ -11,8 +12,8 @@ function main(){
 function addOpData(){
   $('#add').data('operation','+');
   $('#sub').data('operation','-');
-  $('#mul').data('operation','*');
-  $('#div').data('operation','/');
+  $('#mul').data('operation','&times;');
+  $('#div').data('operation','&divide;');
 }
 
 function clickHandlers(){
@@ -26,7 +27,8 @@ function selectOp(){
   var operation = $(this).data('operation');
   var input1 = $('#input1').val();
   var input2 = $('#input2').val();
-  $out = $('#output');
+  var $out = $('#output');
+  var $history = $('#history');
   $out.empty();
   $.ajax({
     method: 'POST',
@@ -39,6 +41,7 @@ function selectOp(){
   })
   .done(function(message){
     $out.text(message.result);
+    appendHistory(message.history);
     console.log(message);
   })
   .fail(function(message){
@@ -49,4 +52,18 @@ function selectOp(){
 function reset(){
   $('input').val('');
   $('#output').text('0');
+}
+
+function appendHistory(history){
+  var $historyDiv = $('#history');
+  $historyDiv.empty();
+  for (var i = 0; i < history.length; i += 1){
+    $historyDiv.prepend('<p>'+ history[i] + '</p>');
+  }
+}
+
+function createNumPad(){
+  for (var i = 0; i < 10; i += 1){
+    
+  }
 }

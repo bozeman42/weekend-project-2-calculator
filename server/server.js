@@ -6,6 +6,8 @@ var calc = require('./modules/calc.js');
 var port = 5000;
 var app = express();
 
+var history = [];
+
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -18,9 +20,12 @@ app.post('/calc',function(req,res){
   var result = {
     result: calc(in1,in2,op)
   };
+  history.push(in1 + ' ' + op + ' ' + in2 + ' = ' + result.result);
+  result.history = history;
   res.send(result);
 });
 
 app.listen(port,function(){
   console.log('Listening on port',port);
 });
+

@@ -7,10 +7,10 @@ function calc(in1,in2,op){
     case '-':
       result = subtract(in1,in2);
       break;
-    case '*':
+    case '&times;':
       result = multiply(in1,in2);
       break;
-    case '/':
+    case '&divide;':
       result = divide(in1,in2);
       break;
   }
