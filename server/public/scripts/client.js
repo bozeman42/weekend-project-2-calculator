@@ -20,39 +20,40 @@ function clickHandlers(){
   $('#op').on('click','button',selectOp);
   $('#clear').on('click',reset)
   $('#numPad').on('click','.numberKeys',numberKeyPress);
+  $('#equals').on('click',sendCalc);
 }
 
-// get operation data from button and 
-// submit operation and input to server for processing
 function sendCalc(){
-  // get operation!!!
-  var input1 = $('#input1').val();
-  var input2 = $('#input2').val();
+  var operation = $('#displayOp').data('operation');
+  var input1 = $('#displayStore').text();
+  var input2 = $('#displayIn').text();
   var $out = $('#output');
   var $history = $('#history');
-  $out.empty();
-  $.ajax({
-    method: 'POST',
-    url: '/calc',
-    data: {
-      in1: input1,
-      in2: input2,
-      op: operation
-    }
-  })
-  .done(function(message){
-    $out.text(message.result);
-    appendHistory(message.history);
-    console.log(message);
-  })
-  .fail(function(message){
-    console.log(message);
-  });
+  if (input1 !== '' && input2 !== ''){
+    $out.empty();
+    $.ajax({
+      method: 'POST',
+      url: '/calc',
+      data: {
+        in1: input1,
+        in2: input2,
+        op: operation
+      }
+    })
+    .done(function(message){
+      $out.text(message.result);
+      appendHistory(message.history);
+      console.log(message);
+    })
+    .fail(function(message){
+      console.log(message);
+    });
+}
 }
 
 function reset(){
   // TO-DO write clearning of button input fields
-  $('input').val('');
+  $('.disp').text('');
   $('#output').text('0');
   $('#display').text('');
   $.ajax({
@@ -90,7 +91,7 @@ function createNumPad(){
     $numPad.append($row);
   }
   $row = $('<div></div>');
-  $button = $('<button id="decimal">.</button>');
+  $button = $('<button class="numberKeys" id="decimal">.</button>');
   $button.data('key','.');
   $row.append($button);
   $button = $('<button class="numberKeys" id="0">0</button>');
@@ -107,14 +108,23 @@ function numberKeyPress(){
   var $this = $(this);
   var digit = $this.data('key');
   $disp = $('#displayIn');
+  if ($this.data('key') === '.') {
+    if ($disp.text().indexOf('.') !== -1){
+      digit = '';
+    }
+  }
   $disp.text($disp.text() + digit);
 }
 
 function selectOp(){
-  var operation = $(this).data('operation');
-  var $in = $('#displayIn');
-  var $store = $('#displayStore');
-  $store.text($in.text());
-  $in.text('');
-  $('#displayOp').text(operation);
+  var operation = $(this).text();
+  var opData = $(this).data('operation');
+  // var operation = $(this).data('operation');
+  if ($('#displayOp').text() === ''){
+    var $in = $('#displayIn');
+    var $store = $('#displayStore');
+    $store.text($in.text());
+    $in.text('');
+  }
+  $('#displayOp').text(operation).data('operation',opData);
 }
