@@ -63,7 +63,27 @@ function appendHistory(history){
 }
 
 function createNumPad(){
-  for (var i = 0; i < 10; i += 1){
-    
+  var $numPad = $('#numPad');
+  var $row;
+  var $button;
+  for (var j = 0; j < 3; j += 1){
+    $row = $('<div></div>');
+    for (var i = 1+(3*j); i < 4+(3*j); i += 1){
+      $button = $('<button id="' + i + '">' + i + '</button>');
+      $button.data('key',i);
+      $row.append($button);
+    }
+    $numPad.append($row);
   }
+  $row = $('<div></div>');
+  $button = $('<button id="decimal">.</button>');
+  $button.data('key','.');
+  $row.append($button);
+  $button = $('<button id="0">0</button>');
+  $button.data('key',0);
+  $row.append($button);
+  $button = $('<button id="equals">=</button>');
+  $button.data('key','=');
+  $row.append($button);
+  $numPad.append($row);
 }

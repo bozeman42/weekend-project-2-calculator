@@ -1,3 +1,15 @@
-body {
+#numPad {
+  background-color: #333;
+  border: solid 2px black;
+  padding: 10px;
+  width: 75px;
+}
+
+#numPad div {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
   font-family: monospace;
 }

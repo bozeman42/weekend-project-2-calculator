@@ -11,6 +11,7 @@
 - [x] client: append result to DOM
 - [x] clear/reset button
 ## Hard Mode
+- [x] Create Numeric buttons
 - [ ] Change input fields to use buttons
 - [ ] button -> op -> button -> equals
 - [ ] '=' button sends data to server
