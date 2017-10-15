@@ -18,7 +18,8 @@ function addOpData(){
 
 function clickHandlers(){
   $('#op').on('click','button',selectOp);
-  $('#clear').on('click',reset) // ADD CLEARING FUNCTION
+  $('#clear').on('click',reset)
+  $('#numPad').on('click','.numberKeys',numberKeyPress);
 }
 
 // get operation data from button and 
@@ -52,6 +53,18 @@ function selectOp(){
 function reset(){
   $('input').val('');
   $('#output').text('0');
+  $('#display').text('');
+  $.ajax({
+    method: 'GET',
+    url: '/clear'
+  })
+  .done(function(response){
+    console.log(response.message);
+    appendHistory(response.history);
+  })
+  .fail(function(error){
+    console.log(error);
+  })
 }
 
 function appendHistory(history){
@@ -69,7 +82,7 @@ function createNumPad(){
   for (var j = 0; j < 3; j += 1){
     $row = $('<div></div>');
     for (var i = 1+(3*j); i < 4+(3*j); i += 1){
-      $button = $('<button id="' + i + '">' + i + '</button>');
+      $button = $('<button class="numberKeys" id="' + i + '">' + i + '</button>');
       $button.data('key',i);
       $row.append($button);
     }
@@ -79,11 +92,19 @@ function createNumPad(){
   $button = $('<button id="decimal">.</button>');
   $button.data('key','.');
   $row.append($button);
-  $button = $('<button id="0">0</button>');
+  $button = $('<button class="numberKeys" id="0">0</button>');
   $button.data('key',0);
   $row.append($button);
   $button = $('<button id="equals">=</button>');
   $button.data('key','=');
   $row.append($button);
   $numPad.append($row);
+}
+
+function numberKeyPress(){
+  console.log('number key presed');
+  var $this = $(this);
+  var digit = $this.data('key');
+  $disp = $('#display');
+  $disp.text($disp.text() + digit);
 }

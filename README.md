@@ -18,4 +18,4 @@
 - [ ] clear button clears output and input areas, resets state of entering calculation
 ## Pro Mode
 - [x] calculation history stored on server and is displayed on load
-- [ ] clear button clears history
+- [x] clear button clears history

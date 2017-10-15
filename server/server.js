@@ -11,6 +11,14 @@ var history = [];
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.get('/clear',function(req,res){
+  history = [];
+  res.send({
+    history: history,
+    message: 'History cleared.'
+  });
+});
+
 app.post('/calc',function(req,res){
   // data: {in1:string,in2:string,op:string}
   var in1 = parseFloat(req.body.in1);
