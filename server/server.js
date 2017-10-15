@@ -19,6 +19,10 @@ app.get('/clear',function(req,res){
   });
 });
 
+app.get('/history',function(req,res){
+  res.send(history);
+});
+
 app.post('/calc',function(req,res){
   // data: {in1:string,in2:string,op:string}
   var in1 = parseFloat(req.body.in1);

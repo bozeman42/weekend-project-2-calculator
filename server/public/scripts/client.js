@@ -6,6 +6,7 @@ function main(){
   createNumPad();
   addOpData();
   clickHandlers();
+  getHistory();
 }
 
 // adds data to each button that contains the operation it will represent
@@ -67,6 +68,19 @@ function reset(){
   .fail(function(error){
     console.log(error);
   })
+}
+
+function getHistory(){
+  $.ajax({
+    method: 'GET',
+    url: '/history'
+  })
+  .done(function(response){
+    appendHistory(response);
+  })
+  .fail(function(message){
+    console.log('Get history failed');
+  });
 }
 
 function appendHistory(history){
