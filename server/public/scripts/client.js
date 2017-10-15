@@ -57,9 +57,10 @@ function sendCalc(){
 }
 
 function reset(){
-  // TO-DO write clearning of button input fields
-  $('#display').text('');
+  console.log($('#display').text());
+  $('.disp').text('');
   $('#output').text('0');
+  console.log($('#output').text());
   $.ajax({
     method: 'GET',
     url: '/clear'

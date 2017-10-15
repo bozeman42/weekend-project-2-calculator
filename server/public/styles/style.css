@@ -3,10 +3,15 @@
   src: url('fonts/calculator.ttf');
 }
 
+#container {
+  max-width: 900px;
+}
+
 #top {
   background-color: #444;
-  width: 79px;
+  width: 75px;
   padding: 5px 10px;
+  border: solid 2px black;
 }
 #display {
   width: 100%;
@@ -22,6 +27,10 @@
   border: solid 2px black;
   padding: 10px;
   width: 75px;
+}
+
+#history {
+  font-family: calculator;
 }
 
 #numPad div {
