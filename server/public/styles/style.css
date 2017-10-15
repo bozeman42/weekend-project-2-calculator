@@ -7,10 +7,15 @@
   max-width: 900px;
 }
 
+#calculator {
+  width: 400px;
+  padding: 50px;
+  background-color: lime;
+}
+
 #top {
   background-color: #444;
-  width: 75px;
-  padding: 5px 10px;
+  padding: 25px;
   border: solid 2px black;
 }
 #display {
@@ -18,6 +23,11 @@
   font-family: calculator;
   background-color: #9bba80;
   text-align: right;
+  color: #273542;
+  text-shadow: 2px 2px 1px #617251;
+  font-size: 40px;
+  font-weight: 800;
+  box-shadow: inset 2px 2px 1px #617251;
 }
 #display > div {
   padding: 1px 2px;
@@ -25,8 +35,6 @@
 #numPad {
   background-color: #333;
   border: solid 2px black;
-  padding: 10px;
-  width: 75px;
 }
 
 #history {
