@@ -24,8 +24,8 @@ function clickHandlers(){
 
 // get operation data from button and 
 // submit operation and input to server for processing
-function selectOp(){
-  var operation = $(this).data('operation');
+function sendCalc(){
+  // get operation!!!
   var input1 = $('#input1').val();
   var input2 = $('#input2').val();
   var $out = $('#output');
@@ -51,6 +51,7 @@ function selectOp(){
 }
 
 function reset(){
+  // TO-DO write clearning of button input fields
   $('input').val('');
   $('#output').text('0');
   $('#display').text('');
@@ -105,6 +106,15 @@ function numberKeyPress(){
   console.log('number key presed');
   var $this = $(this);
   var digit = $this.data('key');
-  $disp = $('#display');
+  $disp = $('#displayIn');
   $disp.text($disp.text() + digit);
+}
+
+function selectOp(){
+  var operation = $(this).data('operation');
+  var $in = $('#displayIn');
+  var $store = $('#displayStore');
+  $store.text($in.text());
+  $in.text('');
+  $('#displayOp').text(operation);
 }
