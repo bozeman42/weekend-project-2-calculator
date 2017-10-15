@@ -12,10 +12,10 @@
 - [x] clear/reset button
 ## Hard Mode
 - [x] Create Numeric buttons
-- [ ] Change input fields to use buttons
-- [ ] button -> op -> button -> equals
-- [ ] '=' button sends data to server
-- [ ] clear button clears output and input areas, resets state of entering calculation
+- [x] Change input fields to use buttons
+- [x] button -> op -> button -> equals
+- [x] '=' button sends data to server
+- [x] clear button clears output and input areas, resets state of entering calculation
 ## Pro Mode
 - [x] calculation history stored on server and is displayed on load
 - [x] clear button clears history

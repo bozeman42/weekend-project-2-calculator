@@ -120,11 +120,13 @@ function selectOp(){
   var operation = $(this).text();
   var opData = $(this).data('operation');
   // var operation = $(this).data('operation');
-  if ($('#displayOp').text() === ''){
-    var $in = $('#displayIn');
-    var $store = $('#displayStore');
-    $store.text($in.text());
-    $in.text('');
+  if ($('#displayIn').text() !== ''){
+    if ($('#displayOp').text() === ''){
+      var $in = $('#displayIn');
+      var $store = $('#displayStore');
+      $store.text($in.text());
+      $in.text('');
+    }
+    $('#displayOp').text(operation).data('operation',opData);
   }
-  $('#displayOp').text(operation).data('operation',opData);
 }
