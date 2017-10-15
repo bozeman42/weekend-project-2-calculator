@@ -30,7 +30,10 @@ function sendCalc(){
   var input2 = $('#displayIn').text();
   var $out = $('#output');
   var $history = $('#history');
-  if (input1 !== '' && input2 !== ''){
+  // only send info if both inputs are full
+  // which should only be possible if an operation
+  // has been selected as well
+  if ((input1 !== '') && (input2 !== '' && input2 !== '.')){
     $out.empty();
     $.ajax({
       method: 'POST',
@@ -133,10 +136,10 @@ function numberKeyPress(){
 function selectOp(){
   var operation = $(this).text();
   var opData = $(this).data('operation');
+  var $in = $('#displayIn');
   // var operation = $(this).data('operation');
-  if ($('#displayIn').text() !== ''){
+  if ($in.text() !== ''  &&  $in.text() !== '.'){
     if ($('#displayOp').text() === ''){
-      var $in = $('#displayIn');
       var $store = $('#displayStore');
       $store.text($in.text());
       $in.text('');
