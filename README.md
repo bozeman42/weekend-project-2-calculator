@@ -14,5 +14,7 @@
 - [ ] Change input fields to use buttons
 - [ ] button -> op -> button -> equals
 - [ ] '=' button sends data to server
+- [ ] clear button clears output and input areas, resets state of entering calculation
 ## Pro Mode
-- [ ] calculation history stored on server and is displayed on load
+- [x] calculation history stored on server and is displayed on load
+- [ ] clear button clears history
