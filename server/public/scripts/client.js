@@ -45,6 +45,7 @@ function sendCalc(){
       }
     })
     .done(function(message){
+      $('.disp').text('');
       $out.text(message.result);
       appendHistory(message.history);
       console.log(message);
@@ -57,9 +58,8 @@ function sendCalc(){
 
 function reset(){
   // TO-DO write clearning of button input fields
-  $('.disp').text('');
-  $('#output').text('0');
   $('#display').text('');
+  $('#output').text('0');
   $.ajax({
     method: 'GET',
     url: '/clear'
@@ -124,6 +124,7 @@ function numberKeyPress(){
   console.log('number key presed');
   var $this = $(this);
   var digit = $this.data('key');
+  $('#output').text('');
   $disp = $('#displayIn');
   if ($this.data('key') === '.') {
     if ($disp.text().indexOf('.') !== -1){

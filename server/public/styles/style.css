@@ -1,3 +1,22 @@
+@font-face {
+  font-family: calculator;
+  src: url('fonts/calculator.ttf');
+}
+
+#top {
+  background-color: #444;
+  width: 79px;
+  padding: 5px 10px;
+}
+#display {
+  width: 100%;
+  font-family: calculator;
+  background-color: #9bba80;
+  text-align: right;
+}
+#display > div {
+  padding: 1px 2px;
+}
 #numPad {
   background-color: #333;
   border: solid 2px black;
