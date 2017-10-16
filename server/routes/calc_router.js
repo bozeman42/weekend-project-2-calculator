@@ -1,10 +1,9 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var router = express.Router();
 var calc = require('../modules/calc.js');
 var history = [];
 
-router.use(bodyParser.urlencoded({extended: true}));
+
 
 router.get('/clear',function(req,res){
   history = [];
@@ -16,6 +15,7 @@ router.get('/clear',function(req,res){
 
 router.post('/',function(req,res){
   // data: {in1:string,in2:string,op:string}
+  console.log(req.body);
   var in1 = parseFloat(req.body.in1);
   var in2 = parseFloat(req.body.in2);
   var op = req.body.op;
