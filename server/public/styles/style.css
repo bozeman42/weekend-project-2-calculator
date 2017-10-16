@@ -4,13 +4,11 @@ body {
 }
 h1 {
   font-family: 'VT323', monospace;
-  /* font-size: 3em; */
   margin-left: 100px;
 }
 
 h2 {
   font-family: 'VT323', monospace;
-  /* font-size: 2em; */
   text-decoration:  underline;
   margin-bottom: 0;
 }
