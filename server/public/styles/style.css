@@ -3,13 +3,13 @@ body {
   background-color: #9bba80;
 }
 h1 {
-  font-family: Iceberg, cursive;
+  font-family: 'VT323', monospace;
   /* font-size: 3em; */
   margin-left: 100px;
 }
 
 h2 {
-  font-family: Iceberg, cursive;
+  font-family: 'VT323', monospace;
   /* font-size: 2em; */
   text-decoration:  underline;
   margin-bottom: 0;
@@ -38,7 +38,7 @@ h2 {
 }
 #display {
   width: 100%;
-  font-family: Iceberg, cursive;
+  font-family: 'VT323', monospace;
   background-color: #9bba80;
   text-align: right;
   color: #273542;
@@ -48,17 +48,18 @@ h2 {
   box-shadow: inset 2px 2px 1px #617251;
   border: solid 1px black;
   border-bottom: solid 1px black;
+  overflow-wrap: break-word;
 }
+
 #display > div {
   padding: 2px 4px;
 }
+
 #numPad {
   background-color: #333;
   border: solid 2px black;
   border-radius: 0 0 10px 10px;
 }
-
-
 
 #numPad button {
   height: 50px;
@@ -69,7 +70,7 @@ h2 {
 }
 
 #history {
-  font-family: Iceberg, cursive;
+  font-family: 'VT323', monospace;
   height: 400px;
   overflow: scroll;
 }

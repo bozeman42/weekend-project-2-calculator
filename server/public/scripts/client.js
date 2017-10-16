@@ -47,7 +47,12 @@ function sendCalc(){
     })
     .done(function(message){
       $('.disp').text('');
-      $out.text(message.result);
+      var outStr = message.result.toString();
+      var decimalPlace = outStr.indexOf('.');
+      if (outStr.length > 15 && decimalPlace !== -1 && decimalPlace < 15) {
+        outStr = outStr.substring(0,15);
+      }
+      $out.text(outStr);
       appendHistory(message.history);
       console.log(message);
     })
