@@ -53,7 +53,7 @@ function sendCalc(){
         outStr = outStr.substring(0,15);
       }
       $out.text(outStr);
-      appendHistory(message.history);
+      getHistory();
       console.log(message);
     })
     .fail(function(message){
@@ -74,7 +74,7 @@ function reset(){
   console.log($('#output').text());
   $.ajax({
     method: 'GET',
-    url: '/clear'
+    url: '/calc/clear'
   })
   .done(function(response){
     console.log(response.message);
@@ -88,7 +88,7 @@ function reset(){
 function getHistory(){
   $.ajax({
     method: 'GET',
-    url: '/history'
+    url: '/calc'
   })
   .done(function(response){
     appendHistory(response);
