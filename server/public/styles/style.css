@@ -1,19 +1,16 @@
-@font-face {
-  font-family: calculator;
-  src: url('fonts/calculator.ttf');
-}
+
 body {
   background-color: #9bba80;
 }
 h1 {
-  font-family: calculator;
-  font-size: 3em;
+  font-family: Iceberg, cursive;
+  /* font-size: 3em; */
   margin-left: 100px;
 }
 
 h2 {
-  font-family: calculator;
-  font-size: 2em;
+  font-family: Iceberg, cursive;
+  /* font-size: 2em; */
   text-decoration:  underline;
   margin-bottom: 0;
 }
@@ -41,12 +38,12 @@ h2 {
 }
 #display {
   width: 100%;
-  font-family: calculator;
+  font-family: Iceberg, cursive;
   background-color: #9bba80;
   text-align: right;
   color: #273542;
   text-shadow: 2px 2px 1px #617251;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 800;
   box-shadow: inset 2px 2px 1px #617251;
   border: solid 1px black;
@@ -72,7 +69,7 @@ h2 {
 }
 
 #history {
-  font-family: calculator;
+  font-family: Iceberg, cursive;
   height: 400px;
   overflow: scroll;
 }
