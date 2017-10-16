@@ -2,18 +2,41 @@
   font-family: calculator;
   src: url('fonts/calculator.ttf');
 }
+body {
+  background-color: #9bba80;
+}
+h1 {
+  font-family: calculator;
+  font-size: 3em;
+  margin-left: 100px;
+}
+
+h2 {
+  font-family: calculator;
+  font-size: 2em;
+  text-decoration:  underline;
+}
 
 #container {
   max-width: 900px;
+  background-color: snow;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50px;
 }
 
 #calculator {
-  width: 400px;
-  padding: 50px;
-  background-color: lime;
+  width: 250px;
+  float: left;
+  margin: 10px 100px 100px 100px;
+}
+
+#histContainer{
+
 }
 
 #top {
+  border-radius: 10px 10px 0px 0px;
   background-color: #444;
   padding: 25px;
   border: solid 2px black;
@@ -30,22 +53,29 @@
   box-shadow: inset 2px 2px 1px #617251;
 }
 #display > div {
-  padding: 1px 2px;
+  padding: 2px 4px;
 }
 #numPad {
   background-color: #333;
   border: solid 2px black;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+#numPad button {
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 2em;
 }
 
 #history {
   font-family: calculator;
 }
 
-#numPad div {
-  display: flex;
-  justify-content: space-between;
-}
-
 button {
   font-family: monospace;
+  outline: none;
 }
