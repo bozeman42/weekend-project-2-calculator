@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 // calc takes input 1, input 2 , operation('+','-','*','/') and returns
 // a number as a result
 var calc = require('./modules/calc.js');
-var port = 5000;
+var port = process.env.PORT || 5000;
 var app = express();
 
 var history = [];
